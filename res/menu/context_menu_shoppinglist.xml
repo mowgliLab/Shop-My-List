@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+        
+    <item
+        android:id="@+id/menuaction_edit"
+        android:orderInCategory="100"
+		android:showAsAction="ifRoom"
+		android:icon="@drawable/ic_action_edit"
+        android:title="@string/action_edit"/>
+        
+<!--     <item -->
+<!--         android:id="@+id/menuaction_moveUp" -->
+<!--         android:orderInCategory="100" -->
+<!-- 		android:showAsAction="ifRoom" -->
+<!-- 		android:icon="@drawable/ic_action_move_up" -->
+<!--         android:title="@string/action_move_up"/> -->
+    
+<!--     <item -->
+<!--         android:id="@+id/menuaction_moveDown" -->
+<!--         android:orderInCategory="100" -->
+<!-- 		android:showAsAction="ifRoom" -->
+<!-- 		android:icon="@drawable/ic_action_move_down" -->
+<!--         android:title="@string/action_move_down"/>   -->
+    
+    <item
+        android:id="@+id/menuaction_delete"
+        android:orderInCategory="100"
+		android:showAsAction="ifRoom"
+		android:icon="@drawable/ic_action_discard"
+        android:title="@string/action_delete"/>
+
+</menu>

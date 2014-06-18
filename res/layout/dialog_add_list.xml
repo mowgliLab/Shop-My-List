@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dialog_small_margin"
+        android:hint="@string/hint_listname"
+        android:inputType="textCapSentences" />
+
+    <TextView
+        android:id="@+id/txt_creationdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dialog_small_margin"
+        android:layout_marginLeft="@dimen/dialog_small_margin"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+
+    <!-- <CheckBox -->
+    <!-- android:id="@+id/check_add_at_the_end" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:enabled="false" -->
+    <!-- android:text="@string/check_at_the_end" /> -->
+
+
+    <!-- <TextView -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_marginTop="@dimen/dialog_margin_top_between_objects" -->
+    <!-- android:text="@string/text_add_after" /> -->
+
+
+    <!-- <Spinner -->
+    <!-- android:id="@+id/spinner_position" -->
+    <!-- style="@style/DatepickerSpinnerStyle" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:enabled="false" /> -->
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="@dimen/weight_manage_space"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:text="@android:string/cancel" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="@dimen/weight_manage_space"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:text="@android:string/ok" />
+    </LinearLayout>
+
+</LinearLayout>

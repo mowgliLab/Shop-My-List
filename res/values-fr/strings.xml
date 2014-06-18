@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Titles -->
+    <string name="app_name">Liste de course</string>
+    <string name="widget_defaulttitle">Aucune liste de course sélectionnée.</string>
+    <string name="description_temp">Ajoute la description à l\'exécution.</string>
+    <string name="text_empty_list">Il n\'y a pas d\'objets</string>
+
+    <!-- Menu -->
+    <string name="action_settings">Configuration</string>
+    <string name="action_edit">Modifier</string>
+    <string name="action_move_up">Monter</string>
+    <string name="action_move_down">Descendre</string>
+    <string name="action_delete">Supprimer</string>
+
+    <!-- MainListActivity -->
+    <string name="description_add_list">Ajouter une nouvelle liste.</string>
+    <string name="description_object_visible_on_widget">%1s est visible sur le widget.</string>
+
+    <!-- DetailListActivity -->
+    <string name="description_add_product">Ajouter un nouveau produit.</string>
+
+    <!-- Dialogs -->
+	    <!-- AddList -->
+	    <string name="hint_listname">Nom de la liste</string>
+	    <string name="check_at_the_end">Ajouter à la fin</string>
+	    <string name="text_add_after">Ajouter après :</string>
+	    <string name="warnin_uncomplete_field">Vous devez compléter ce champ.</string>
+	
+	    <!-- AddProduct -->
+	    <string name="hint_productname">Nom du produit</string>
+	    <string name="hint_description">Description (marque, quantité, &#8230;)</string>
+	    <string name="add_more">Ajouter</string>
+
+</resources>

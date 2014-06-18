@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="cab_list_title">
+        <item quantity="one">%1d liste sélectionnée</item>
+        <item quantity="other">%1d listes sélectionnées</item>
+    </plurals>
+        
+    <plurals name="cab_article_title">
+        <item quantity="one">%1d article sélectionné</item>
+        <item quantity="other">%1d articles sélectionnés</item>
+    </plurals>
+    
+    <plurals name="cab_toast_delete_list">
+        <item quantity="one">Suppression d\'%1d liste</item>
+        <item quantity="other">Suppression de %1d listes</item>
+    </plurals>
+    
+    <plurals name="cab_toast_delete_article">
+        <item quantity="one">Suppression d\'%1d article</item>
+        <item quantity="other">Suppression de %1d articles</item>
+    </plurals>
+</resources>

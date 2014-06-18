@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <CheckedTextView
+        android:id="@+id/txt_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/checked_textview_height"
+        android:checkMark="?android:attr/textCheckMark"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/txt_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_name"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small" />
+
+</RelativeLayout>
