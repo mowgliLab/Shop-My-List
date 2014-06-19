@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Titles -->
-    <string name="app_name">Liste de course</string>
+    <string name="app_name">Shop My List</string>
     <string name="widget_defaulttitle">Aucune liste de course sélectionnée.</string>
     <string name="description_temp">Ajoute la description à l\'exécution.</string>
     <string name="text_empty_list">Il n\'y a pas d\'objets</string>

@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Titles -->
-    <string name="app_name">Shopping List</string>
+    <string name="app_name">Shop My List</string>
     <string name="widget_defaulttitle">No shopping list selected.</string>
     <string name="description_temp">Add description at runtime</string>
     <string name="text_empty_list">There is no item</string>

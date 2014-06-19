@@ -1,0 +1,67 @@
+package be.mowglilab.shopmylist.visual.view;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Checkable;
+import android.widget.RelativeLayout;
+
+public class CheckableRelativeLayout extends RelativeLayout implements Checkable {
+
+	  public CheckableRelativeLayout(Context context) {
+		super(context);
+	}
+
+	private boolean isChecked;  
+	  private List<Checkable> checkableViews;
+	  
+	// @see android.widget.Checkable#isChecked()    
+	  public boolean isChecked() {     
+	    return isChecked;    
+	  }    
+
+	  // @see android.widget.Checkable#setChecked(boolean)    
+	  public void setChecked(boolean isChecked) {      
+	    this.isChecked = isChecked;      
+	    for (Checkable c : checkableViews) {       
+	      // Pass the information to all the child Checkable widgets       
+	      c.setChecked(isChecked);      
+	    }    
+	  }    
+
+	  // @see android.widget.Checkable#toggle()    
+	  public void toggle() {      
+	    this.isChecked = !this.isChecked;      
+	    for (Checkable c : checkableViews) {         
+	      // Pass the information to all the child Checkable widgets       
+	      c.toggle();      
+	    }    
+	  }
+	  @Override    
+	  protected void onFinishInflate() {      
+	    super.onFinishInflate();      
+	    final int childCount = this.getChildCount();      
+	    for (int i = 0; i < childCount; ++i) {       
+	      findCheckableChildren(this.getChildAt(i));     
+	    }    
+	  }    
+
+	  /**    
+	   * Add to our checkable list all the children of the view that implement the    
+	   * interface Checkable   
+	   */    
+	  private void findCheckableChildren(View v) {      
+	    if (v instanceof Checkable) {          
+	      this.checkableViews.add((Checkable) v);        
+	    }      
+	    if (v instanceof ViewGroup) {       
+	      final ViewGroup vg = (ViewGroup) v;       
+	      final int childCount = vg.getChildCount();        
+	      for (int i = 0; i < childCount; ++i) {         
+	        findCheckableChildren(vg.getChildAt(i));       
+	      }     
+	    }    
+	  }
+}
