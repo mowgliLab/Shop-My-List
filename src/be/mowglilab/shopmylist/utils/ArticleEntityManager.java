@@ -39,22 +39,22 @@ public class ArticleEntityManager implements Subject,
 		// this.populateArticles();
 	}
 
-	// private void populateArticles() {
-	// ArticleDAO artDAO = new ArticleDAO(context);
-	//
-	// try {
-	// artDAO.openForRead();
-	// shopListModel.setArticles(artDAO
-	// .getAllForShoppingList(shopListModel));
-	// } catch (Exception e) {
-	// Log.e(this.getClass().getName(),
-	// "ShoppingList populate error" + e.getMessage());
-	// } finally {
-	// artDAO.close();
-	// }
-	//
-	// this.notifyObserver();
-	// }
+	 public void populateArticles() {
+	 ArticleDAO artDAO = new ArticleDAO(context);
+	
+	 try {
+	 artDAO.openForRead();
+	 this.shopListModel.setArticles(artDAO
+	 .getAllForShoppingList(this.shopListModel));
+	 } catch (Exception e) {
+	 Log.e(this.getClass().getName(),
+	 "ShoppingList populate error" + e.getMessage());
+	 } finally {
+	 artDAO.close();
+	 }
+	
+	 this.notifyObserver();
+	 }
 
 	public ShoppingListModel getShoppingList() {
 		return shopListModel;

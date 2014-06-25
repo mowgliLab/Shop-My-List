@@ -6,6 +6,7 @@
     <string name="widget_defaulttitle">No shopping list selected.</string>
     <string name="description_temp">Add description at runtime</string>
     <string name="text_empty_list">There is no item</string>
+    <string name="version_number">1.0.1</string>
 
     <!-- Menu -->
     <string name="action_settings">Settings</string>

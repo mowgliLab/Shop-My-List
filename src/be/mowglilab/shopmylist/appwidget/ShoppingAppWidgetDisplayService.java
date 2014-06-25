@@ -8,16 +8,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.IBinder;
 import android.widget.RemoteViews;
+import be.mowglilab.shopmylist.R;
 import be.mowglilab.shopmylist.activities.DetailListActivity;
 import be.mowglilab.shopmylist.activities.MainListActivity;
 import be.mowglilab.shopmylist.data.models.ShoppingListModel;
 import be.mowglilab.shopmylist.utils.ShoppingListEntityManager;
-import be.mowglilab.shopmylist.R;
 
 public class ShoppingAppWidgetDisplayService extends Service {
 
 	public static final String ACTION_CREATE_WIDGET = "be.mowglilab.shopmylist.ACTION_CREATE_WIDGET";
 	public static final String ACTION_REFRESH_WIDGET = "be.mowglilab.shopmylist.ACTION_REFRESH_WIDGET";
+	public static final String ACTION_OPEN_LIST = "be.mowglilab.shopmylist.ACTION_OPEN_LIST";
 
 	private ShoppingListEntityManager shoppingListEntityManager;
 	private ShoppingListModel currentShoppingList;
@@ -64,6 +65,18 @@ public class ShoppingAppWidgetDisplayService extends Service {
 			mgr.partiallyUpdateAppWidget(appWidgetIds, remoteView);
 			mgr.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.my_list);
 
+			stopSelf();
+			return START_NOT_STICKY;
+		} else if (actionToPerform.equals(ACTION_OPEN_LIST)) {
+			// Open List is call when user tap on the widget's title. It open
+			// the application in the current list.
+			Intent openApp = new Intent(this.getApplicationContext(),
+					DetailListActivity.class);
+			openApp.putExtra(MainListActivity.EXTRA_SHOPPING_LIST,
+					currentShoppingList);
+			openApp.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			
+			startActivity(openApp);
 			stopSelf();
 			return START_NOT_STICKY;
 		}
@@ -128,11 +141,12 @@ public class ShoppingAppWidgetDisplayService extends Service {
 
 			// Configure on click on title
 			Intent openAppIntent = new Intent(this.getApplicationContext(),
-					DetailListActivity.class);
-			openAppIntent.putExtra(MainListActivity.EXTRA_SHOPPING_LIST,
-					currentShoppingList);
-			PendingIntent openListPendingIntent = PendingIntent.getActivity(
-					this.getApplicationContext(), 0, openAppIntent, 0);
+					ShoppingAppWidgetProvider.class);
+			openAppIntent.setAction(ShoppingAppWidgetProvider.OPEN_LIST_ACTION);
+			openAppIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+					appWidgetId);
+			PendingIntent openListPendingIntent = PendingIntent.getBroadcast(
+					this.getApplicationContext(), 0, openAppIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 			rv.setOnClickPendingIntent(R.id.widget_title, openListPendingIntent);
 
 			mgr.updateAppWidget(appWidgetId, rv);

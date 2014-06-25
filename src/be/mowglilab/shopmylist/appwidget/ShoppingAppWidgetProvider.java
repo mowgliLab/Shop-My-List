@@ -13,6 +13,7 @@ public class ShoppingAppWidgetProvider extends AppWidgetProvider {
 	public static final String EXTRA_ITEM_PARCELABLE = "be.mowglilab.shopmylist.EXTRA_ITEM_PARCELABLE";
 	public static final String EXTRA_ITEM = "be.mowglilab.shopmylist.EXTRA_ITEM";
 	public static final String CHECK_ACTION = "be.mowglilab.shopmylist.CHECK_ACTION";
+	public static final String OPEN_LIST_ACTION = "be.mowglilab.shopmylist.OPEN_LIST_ACTION";
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
@@ -22,14 +23,20 @@ public class ShoppingAppWidgetProvider extends AppWidgetProvider {
 			ArticleModel model = b.getParcelable(EXTRA_ITEM_PARCELABLE);
 
 			model.setChecked(!model.isChecked());
-			ArticleEntityManager articleManager = new ArticleEntityManager(context, model);
+			ArticleEntityManager articleManager = new ArticleEntityManager(
+					context, model);
 			articleManager.update(model);
-			
+
 			Intent refreshWidgets = new Intent(context,
 					ShoppingAppWidgetDisplayService.class);
 			refreshWidgets
 					.setAction(ShoppingAppWidgetDisplayService.ACTION_REFRESH_WIDGET);
 			context.startService(refreshWidgets);
+		} else if (intent.getAction().equals(OPEN_LIST_ACTION)) {
+			Intent openList = new Intent(context,
+					ShoppingAppWidgetDisplayService.class);
+			openList.setAction(ShoppingAppWidgetDisplayService.ACTION_OPEN_LIST);
+			context.startService(openList);
 		}
 
 		super.onReceive(context, intent);
