@@ -8,7 +8,7 @@
     <string name="text_empty_list">Il n\'y a pas d\'objets</string>
 
     <!-- Menu -->
-    <string name="action_settings">Configuration</string>
+    <string name="option_about">A propos</string>
     <string name="action_edit">Modifier</string>
     <string name="action_move_up">Monter</string>
     <string name="action_move_down">Descendre</string>
@@ -20,6 +20,11 @@
 
     <!-- DetailListActivity -->
     <string name="description_add_product">Ajouter un nouveau produit.</string>
+    
+    <!-- AboutActivity -->
+    <string name="text_version_description">Version %s</string>
+    <string name="text_about_description">Gestionnaire de listes Android</string>
+    <string name="text_about_license">GNU GENERAL PUBLIC LICENSE Version 3 \nCe programme est libre: vous pouvez le redistribuer et/ou le modifier sous les termes de la license GNU General Public License comme publié par la Free Software Foundation, soit la version 3 de la License, ou (à votre guise) toutes versions ultérieures.</string>
 
     <!-- Dialogs -->
 	    <!-- AddList -->

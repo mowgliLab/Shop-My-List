@@ -74,6 +74,12 @@ public class DetailListActivity extends Activity implements
 	}
 
 	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		this.getMenuInflater().inflate(R.menu.option_menu, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
 	protected void onStart() {
 		super.onStart();
 
@@ -412,7 +418,8 @@ public class DetailListActivity extends Activity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			NavUtils.navigateUpFromSameTask(this);
+			Intent upIntent = NavUtils.getParentActivityIntent(this);
+			NavUtils.navigateUpTo(this, upIntent);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -445,6 +452,17 @@ public class DetailListActivity extends Activity implements
 		}
 	}
 
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.option_about:
+			Intent intent = new Intent(this, AboutActivity.class);
+			startActivity(intent);
+			return true;
+		}
+		return super.onMenuItemSelected(featureId, item);
+	}
+	
 	/**
 	 * this method update our view when a change is done in DB.
 	 */

@@ -76,6 +76,12 @@ public class MainListActivity extends Activity implements
 		setContentView(R.layout.activity_list_with_add_button);
 		// TODO Check intent when saved state...
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		this.getMenuInflater().inflate(R.menu.option_menu, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
 
 	@Override
 	protected void onStart() {
@@ -454,7 +460,17 @@ public class MainListActivity extends Activity implements
 		if (v == addButton) {
 			this.displayCreationDialog();
 		}
-
+	}
+	
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.option_about:
+			Intent intent = new Intent(this, AboutActivity.class);
+			startActivity(intent);
+			return true;
+		}
+		return super.onMenuItemSelected(featureId, item);
 	}
 
 	/**

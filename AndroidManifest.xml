@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="be.mowglilab.shopmylist"
     android:installLocation="internalOnly"
-    android:versionCode="2"
-    android:versionName="1.0.1" >
+    android:versionCode="4"
+    android:versionName="1.0.3" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -43,6 +43,14 @@
         <activity
             android:name="be.mowglilab.shopmylist.activities.DetailListActivity"
             android:label=""
+            android:parentActivityName="be.mowglilab.shopmylist.activities.MainListActivity" >
+            <meta-data 
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="be.mowglilab.shopmylistwithwidget.activities.MainListActivity"/>
+        </activity>
+        <activity
+            android:name="be.mowglilab.shopmylist.activities.AboutActivity"
+            android:label="About"
             android:parentActivityName="be.mowglilab.shopmylist.activities.MainListActivity" >
             <meta-data 
                 android:name="android.support.PARENT_ACTIVITY"
